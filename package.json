@@ -1,0 +1,59 @@
+{
+  "name": "blog-koa",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development ts-node-dev bin/www",
+    "serve": "NODE_ENV=development nodemon --exec ts-node bin/www",
+    "www": "NODE_ENV=production pm2 start bin/www"
+  },
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "bcrypt": "^5.0.1",
+    "handlebars": "~4.0.5",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-generic-session": "^2.1.1",
+    "koa-joi-router": "^7.0.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-onerror": "^4.1.0",
+    "koa-redis": "^4.0.1",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.2.0",
+    "module-alias": "^2.2.2",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/koa": "^2.13.0",
+    "@types/koa-router": "^7.4.1",
+    "@types/node": "^14.14.31",
+    "@types/validator": "^13.1.3",
+    "cross-env": "^7.0.3",
+    "lint-staged": "^10.5.4",
+    "nodemon": "^1.19.1",
+    "sequelize-automate": "^1.2.2",
+    "sort-package-json": "^1.49.0",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.2",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "_moduleAliases": {
+    "@": "src"
+  }
+}
