@@ -11,8 +11,9 @@ export default (sequelize: Sequelize) => {
       type: new DataTypes.TEXT('long'),
       allowNull: false
     },
-    author: {
-      type: DataTypes.INTEGER
+    authorId: {
+      type: DataTypes.INTEGER,
+      field: 'author_id'
     },
     status: {
       type: DataTypes.STRING

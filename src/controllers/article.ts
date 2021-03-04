@@ -6,7 +6,7 @@ class ArticleController extends Controller {
    */
   async getList() {
     const list = await this.services.articleService.getList()
-    this.ctx.body = list
+    this.ctx.body = this.successJSON(list)
   }
 
   /**

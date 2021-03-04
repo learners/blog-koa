@@ -21,7 +21,7 @@ class SignController extends Controller {
     const user = await this.services.userService.getLoginUser(this.account, utils.hash(this.password))
     if (user) {
       this.ctx.session.user = user
-      this.ctx.body = this.successJSON(user)
+      this.ctx.body = this.successJSON(user.toJSON())
     } else {
       this.ctx.body = this.errorJSON()
     }

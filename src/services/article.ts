@@ -9,7 +9,8 @@ class ArticleService extends Service {
     return this.models.Article.findAll(mergeFindOptions({
       attributes: {
         exclude: ['createtime', 'updatetime', 'deletetime']
-      }
+      },
+      include: 'author'
     }))
   }
   /**

@@ -25,14 +25,14 @@ function initModels(sequelize: Sequelize) {
   }
 
   // 用户-文章 一对多关联
-  User.hasMany(Article, { foreignKey: 'author' })
-  Article.belongsTo(User, { foreignKey: 'author' })
+  User.hasMany(Article, { foreignKey: 'authorId' })
+  Article.belongsTo(User, { foreignKey: 'authorId', as: 'author' })
 
   // 文章-分类 多对多关联
   Article.belongsToMany(Category, { through: ArticleCategory })
   Category.belongsToMany(Article, { through: ArticleCategory })
 
-  // 用户-角色 多对对关系
+  // 用户-角色 多对多关联
   User.belongsToMany(Role, { through: UserRole })
   Role.belongsToMany(User, { through: UserRole })
 

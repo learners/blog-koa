@@ -2,7 +2,7 @@ import { Sequelize, DataTypes } from 'sequelize'
 
 export default (sequelize: Sequelize) => {
   return sequelize.define('ArticleCategory', {
-    article: {
+    articleId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -10,7 +10,7 @@ export default (sequelize: Sequelize) => {
         key: 'id'
       }
     },
-    category: {
+    categoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

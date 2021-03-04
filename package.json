@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development ts-node-dev bin/www",
-    "serve": "NODE_ENV=development nodemon --exec ts-node bin/www",
+    "serve": "NODE_ENV=development nodemon -e js,ts --exec ts-node bin/www",
     "www": "NODE_ENV=production pm2 start bin/www"
   },
   "lint-staged": {

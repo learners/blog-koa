@@ -1,3 +1,4 @@
+import { FindOptions } from 'sequelize'
 import sequelize from '@/utils/sequelize'
 import initModels from './init_models'
 
@@ -7,7 +8,7 @@ const models = initModels(sequelize)
 /**
  * 合并查询选项
  */
-function mergeFindOptions(options = {}) {
+function mergeFindOptions(options: FindOptions = {}) {
   return options
 }
 

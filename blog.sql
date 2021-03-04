@@ -28,7 +28,7 @@ CREATE TABLE `article` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `author` int NOT NULL,
+  `author_id` int NOT NULL,
   `createtime` datetime DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
   `deletetime` datetime DEFAULT NULL,
@@ -42,8 +42,8 @@ CREATE TABLE `article` (
 DROP TABLE IF EXISTS `article_category`;
 CREATE TABLE `article_category` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `article` int NOT NULL,
-  `category` int NOT NULL,
+  `article_id` int NOT NULL,
+  `category_id` int NOT NULL,
   `createtime` datetime DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
   `deletetime` datetime DEFAULT NULL,
@@ -108,8 +108,8 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` int DEFAULT NULL,
-  `role` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `role_id` int DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
   `deletetime` datetime DEFAULT NULL,
