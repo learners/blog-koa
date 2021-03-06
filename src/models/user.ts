@@ -1,8 +1,27 @@
-import { Sequelize, DataTypes } from 'sequelize'
+import {
+  Sequelize,
+  DataTypes,
+  Model
+} from 'sequelize'
 import utils from '@/utils'
 
+export declare class UserModel extends Model {
+  id: number
+  account: string
+  password: string
+  nickname: string
+  sex: number
+  motto: string
+  avatar: string
+  phone: string
+  email: string
+  birthday: Date
+  remark: string
+  status: string
+}
+
 export default (sequelize: Sequelize) => {
-  return sequelize.define('User', {
+  return sequelize.define<UserModel>('User', {
     account: {
       type: DataTypes.STRING(20),
       allowNull: false,

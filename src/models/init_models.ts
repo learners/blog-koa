@@ -1,19 +1,26 @@
 import path from 'path'
 import { Sequelize, ModelCtor, Model } from 'sequelize'
 
+import type { ArticleModel } from './article'
+import type { ArticleCategoryModel } from './article_category'
+import type { CategoryModel } from './category'
+import type { RoleModel } from './role'
+import type { UserModel } from './user'
+import type { UserRoleModel } from './user_role'
+
 /**
  * 初始化所有模型
  * @param {Sequelize} sequelize Sequelize 实例对象
  */
 function initModels(sequelize: Sequelize) {
-  const load = (name: string): ModelCtor<Model> => require(path.join(__dirname, name)).default(sequelize)
+  const load = <M extends Model>(name: string): ModelCtor<M> => require(path.join(__dirname, name)).default(sequelize)
 
-  const Article = load('article')
-  const ArticleCategory = load('article_category')
-  const Category = load('category')
-  const Role = load('role')
-  const User = load('user')
-  const UserRole = load('user_role')
+  const Article = load<ArticleModel>('article')
+  const ArticleCategory = load<ArticleCategoryModel>('article_category')
+  const Category = load<CategoryModel>('category')
+  const Role = load<RoleModel>('role')
+  const User = load<UserModel>('user')
+  const UserRole = load<UserRoleModel>('user_role')
 
   const models = {
     Article,

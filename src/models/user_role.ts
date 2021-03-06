@@ -1,7 +1,17 @@
-import { Sequelize, DataTypes } from 'sequelize'
+import {
+  Sequelize,
+  DataTypes,
+  Model
+} from 'sequelize'
+
+export declare class UserRoleModel extends Model {
+  id: number
+  userId: number
+  roleId: number
+}
 
 export default (sequelize: Sequelize) => {
-  return sequelize.define('UserRole', {
+  return sequelize.define<UserRoleModel>('UserRole', {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

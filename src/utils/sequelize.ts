@@ -20,10 +20,8 @@ const sequelize = new Sequelize({
     freezeTableName: true, // 强制表名称与模型名称一致
     paranoid: true, // 启用软删除操作
     timestamps: true, // 自动设置操作时间
-    createdAt: 'createtime',
-    updatedAt: 'updatetime',
-    deletedAt: 'deletetime'
   },
+  timezone: '+08:00',
   logging: msg => debug(msg)
 })
 

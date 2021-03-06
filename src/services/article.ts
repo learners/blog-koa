@@ -8,7 +8,7 @@ class ArticleService extends Service {
   getList() {
     return this.models.Article.findAll(mergeFindOptions({
       attributes: {
-        exclude: ['createtime', 'updatetime', 'deletetime']
+        exclude: ['createdAt', 'updatedAt', 'deletedAt']
       },
       include: 'author'
     }))
@@ -20,7 +20,7 @@ class ArticleService extends Service {
     return this.models.Article.findOne({
       where: { id },
       attributes: {
-        exclude: ['deletetime']
+        exclude: ['deletedAt']
       }
     })
   }
