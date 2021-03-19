@@ -12,17 +12,28 @@ class Controller {
   protected services: Instances<typeof Services>
   protected successJSON: typeof success
   protected errorJSON: typeof error
+  protected ctx = {} as App.Context
 
-  /**
-   * @param ctx 请求或响应上下文对象
-   */
-  constructor(protected ctx: App.Context) {
+  constructor() {
     // 返回 JSON 数据模型
     this.successJSON = success
     this.errorJSON = error
     // 设置服务层对象
     this.services = this.getServices()
   }
+
+  /**
+   * 设置请求或响应上下文对象
+   */
+  public setContext(ctx: App.Context) {
+    this.ctx = ctx
+    this.init()
+  }
+
+  /**
+   * 初始化控制器
+   */
+  protected init() {}
 
   /**
    * 获取服务层对象

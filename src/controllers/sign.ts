@@ -4,12 +4,11 @@ import Controller from '@/common/controller'
 const utils = require('@/utils')
 
 class SignController extends Controller {
-  account: string
-  password: string
+  account = ''
+  password = ''
 
-  constructor(ctx: App.Context) {
-    super(ctx)
-    const { username: account, password } = ctx.query
+  init() {
+    const { username: account, password } = this.ctx.query
     this.account = <string>account
     this.password = <string>password
   }
