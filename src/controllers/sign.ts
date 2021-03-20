@@ -3,26 +3,22 @@ import Controller from '@/common/controller'
 
 const utils = require('@/utils')
 
+declare interface Query {
+  [key: string]: string
+}
+
 class SignController extends Controller {
-  account = ''
-  password = ''
-
-  init() {
-    const { username: account, password } = this.ctx.query
-    this.account = <string>account
-    this.password = <string>password
-  }
-
   /**
    * 登录
    */
   async signin() {
-    const user = await this.services.userService.getLoginUser(this.account, utils.hash(this.password))
+    const { username, password } = this.ctx.query as Query
+    const user = await this.services.userService.getLoginUser(username, utils.hash(password))
     if (user) {
       this.ctx.session.user = user
-      this.ctx.body = this.successJSON(user.toJSON())
+      this.ctx.body = this.successModel(user.toJSON())
     } else {
-      this.ctx.body = this.errorJSON()
+      this.ctx.body = this.errorModel()
     }
   }
 
@@ -30,9 +26,10 @@ class SignController extends Controller {
    * 注册
    */
   async signup() {
+    const { username, password } = this.ctx.query as Query
     await this.services.userService.saveUser({
-      account: this.account,
-      password: this.password
+      account: username,
+      password
     })
 
     this.ctx.status = 200

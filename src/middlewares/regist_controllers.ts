@@ -20,7 +20,7 @@ export = (app: App) => {
       const prototype = Object.getPrototypeOf(controller)
       // 存储 controller 实例
       utils.set(controllers, `${key.charAt(0).toLowerCase()}${key.slice(1)}` as CamelCase<typeof key>, controller)
-      // 获取 prototype 中的方法名列表
+      // 遍历 prototype 中的方法
       Object.getOwnPropertyNames(prototype).forEach(name => {
         const descriptor = Object.getOwnPropertyDescriptor(prototype, name)
         // 为实例方法绑定 controller 对象

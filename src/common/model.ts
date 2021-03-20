@@ -9,7 +9,7 @@ const STATUS_TEXT = {
 }
 
 // 返回 JSON 数据模型
-export function success(data: unknown, message?: string) {
+export function successModel(data: unknown, message?: string) {
   if (typeof data === 'string' && typeof message === 'undefined') {
     return {
       code: 0,
@@ -30,7 +30,7 @@ export function success(data: unknown, message?: string) {
  * @param {string} message 错误消息
  * @param {number} code 错误码
  */
-export function error(message = 'fail', code = 1) {
+export function errorModel(message = 'fail', code = 1) {
   return {
     data: null,
     message,

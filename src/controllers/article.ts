@@ -6,7 +6,7 @@ class ArticleController extends Controller {
    */
   async getList() {
     const list = await this.services.articleService.getList()
-    this.ctx.body = this.successJSON(list)
+    this.ctx.body = this.successModel(list)
   }
 
   /**
@@ -15,9 +15,9 @@ class ArticleController extends Controller {
   async getDetail() {
     const res = await this.services.articleService.getDetail(this.ctx.query.id)
     if (res) {
-      this.ctx.body = this.successJSON(res)
+      this.ctx.body = this.successModel(res)
     } else {
-      this.ctx.body = this.errorJSON()
+      this.ctx.body = this.errorModel()
     }
   }
 }

@@ -6,18 +6,18 @@ import * as Services from '@/services'
 import SuperService from '@/common/service'
 import utils = require('@/utils')
 
-import { success, error } from './model'
+import { successModel, errorModel } from './model'
 
 class Controller {
   protected services: Instances<typeof Services>
-  protected successJSON: typeof success
-  protected errorJSON: typeof error
+  protected successModel: typeof successModel
+  protected errorModel: typeof errorModel
   protected ctx = {} as App.Context
 
   constructor() {
     // 返回 JSON 数据模型
-    this.successJSON = success
-    this.errorJSON = error
+    this.successModel = successModel
+    this.errorModel = errorModel
     // 设置服务层对象
     this.services = this.getServices()
   }
@@ -27,13 +27,7 @@ class Controller {
    */
   public setContext(ctx: App.Context) {
     this.ctx = ctx
-    this.init()
   }
-
-  /**
-   * 初始化控制器
-   */
-  protected init() {}
 
   /**
    * 获取服务层对象
