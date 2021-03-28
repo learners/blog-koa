@@ -12,7 +12,7 @@ const username = Joi.string()
 const password = Joi.string()
                     .trim()
                     .required()
-                    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*_]$/)
+                    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*_]{5,20}$/)
                     .message('密码校验失败')
 
 export default {

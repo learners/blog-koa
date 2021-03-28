@@ -15,7 +15,7 @@ class Controller {
   protected ctx = {} as App.Context
 
   constructor() {
-    // 返回 JSON 数据模型
+    // 返回 JSON 响应模型
     this.successModel = successModel
     this.errorModel = errorModel
     // 设置服务层对象

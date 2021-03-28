@@ -1,4 +1,3 @@
-import type { App } from '@/types'
 import Controller from '@/common/controller'
 
 const utils = require('@/utils')
@@ -18,7 +17,7 @@ class SignController extends Controller {
       this.ctx.session.user = user
       this.ctx.body = this.successModel(user.toJSON())
     } else {
-      this.ctx.body = this.errorModel()
+      this.ctx.body = this.errorModel(this.errorModel.LOGIN_ERROR)
     }
   }
 
